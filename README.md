@@ -1,2 +1,2 @@
-# distributed-storage-systems-examples
-Examples for the Distributed Storage Systems class
+# Distributed Storage Systems Examples
+Code examples for the Distributed Storage systems class.
