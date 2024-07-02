@@ -37,6 +37,10 @@ void main()
 		Socket.select(readSet, writeSet, errorSet);
 
 		if(readSet.isSet(listeningSocket)) {
+			// When we accepted connections, a new socket is created for
+			// active connections.  The original socket used for listening
+			// for connections isn't closed -- it's kept open to keep
+			// listening for more connections.
 			Socket acceptedSocket = listeningSocket.accept();
 			acceptedSocket.blocking(false);
 			Address clientAddress = acceptedSocket.remoteAddress;

@@ -20,6 +20,10 @@ void main()
 	writeln("Socket set to listen");
 
 	while(true) {
+		// When we accepted connections, a new socket is created for
+		// active connections.  The original socket used for listening
+		// for connections isn't closed -- it's kept open to keep
+		// listening for more connections.
 		Socket acceptedSocket = listeningSocket.accept();
 		Address clientAddress = acceptedSocket.remoteAddress;
 		writeln("Accepted connection from " ~ clientAddress.toAddrString());
