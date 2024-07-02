@@ -3,7 +3,9 @@ import std.conv : to;
 import std.socket;
 import std.stdio;
 
-// Echo server that handles only a single connection
+// Echo server that handles multiple connections using multiplexed I/O
+// with select() and non-blocking I/O
+//
 // Note that this example doesn't handle the case where the number of bytes sent
 // or recieved was fewer than expected.  Calls to send() and recieve() would normally
 // be wrapped in loops to keep calling send() / recieve() until all bytes are transmitted
