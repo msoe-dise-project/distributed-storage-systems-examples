@@ -1,0 +1,25 @@
+{
+	"authors": [
+		"RJ Nowling"
+	],
+	"copyright": "Copyright © 2024, RJ Nowling",
+	"description": "Examples of network clients/servers in D.",
+	"license": "Apache-2.0",
+	"name": "d-networking-examples",
+	"targetType": "library",
+	"subPackages": [{
+		"name": "echo-client",
+		"targetType": "executable",
+		"sourcePaths": ["frontends/echo-client"]
+	},
+	{
+		"name": "echo-single-server",
+		"targetType": "executable",
+		"sourcePaths": ["frontends/echo-single-server"]
+	},
+	{
+		"name": "echo-multiplexed-server",
+		"targetType": "executable",
+		"sourcePaths": ["frontends/echo-multiplexed-server"]
+	}]
+}
