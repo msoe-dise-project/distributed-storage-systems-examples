@@ -1,3 +1,4 @@
+import core.thread;
 import std.conv : to;
 import std.socket;
 import std.stdio;
@@ -19,18 +20,23 @@ void main()
 
 	string msg = "Hello from D!";
 	ubyte[] msgBytes = cast(ubyte[]) msg;
-	ptrdiff_t bytesSent = socket.send(msgBytes);
-	writeln("Sent " ~ to!string(bytesSent) ~ " bytes");
 
-	if(bytesSent <= 0) {
-		writeln("Connection closed unexpectedly");
-	} else if(bytesSent < msgBytes.length) {
-		writeln("Sent fewer bytes than expected");
+	while(true) {
+		ptrdiff_t bytesSent = socket.send(msgBytes);
+		writeln("Sent " ~ to!string(bytesSent) ~ " bytes");
+
+		if(bytesSent <= 0) {
+			writeln("Connection closed unexpectedly");
+		} else if(bytesSent < msgBytes.length) {
+			writeln("Sent fewer bytes than expected");
+		}
+
+		ubyte[] recvBuffer = new ubyte[512];
+		ptrdiff_t bytesRecvd = socket.receive(recvBuffer);
+		writeln("Received " ~ to!string(bytesRecvd) ~ " bytes");
+		
+		Thread.sleep(dur!("msecs")(100));
 	}
-
-	ubyte[] recvBuffer = new ubyte[512];
-	ptrdiff_t bytesRecvd = socket.receive(recvBuffer);
-	writeln("Received " ~ to!string(bytesRecvd) ~ " bytes");
 
 	// D docs recommend shutdown before close: https://dlang.org/phobos/std_socket.html#.Socket.close
 	socket.shutdown(SocketShutdown.BOTH);
