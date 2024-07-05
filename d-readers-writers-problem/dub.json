@@ -1,0 +1,14 @@
+{
+	"authors": [
+		"RJ Nowling"
+	],
+	"copyright": "Copyright © 2024, RJ Nowling",
+	"description": "Example implementations of solutions to the readers-writers problem",
+	"license": "Apache-2.0",
+	"name": "d-readers-writers-problem",
+	"subPackages": [{
+			"name": "concurrent-reader",
+			"targetType": "executable",
+			"sourcePaths": ["frontends/concurrent-reader"]
+	}]
+}

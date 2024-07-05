@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/d-readers-writers-problem
+d-readers-writers-problem.so
+d-readers-writers-problem.dylib
+d-readers-writers-problem.dll
+d-readers-writers-problem.a
+d-readers-writers-problem.lib
+d-readers-writers-problem-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
