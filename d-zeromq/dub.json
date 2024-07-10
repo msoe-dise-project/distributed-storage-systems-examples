@@ -1,0 +1,25 @@
+{
+	"authors": [
+		"RJ Nowling"
+	],
+	"copyright": "Copyright © 2024, RJ Nowling",
+	"description": "Examples using ZeroMQ",
+	"license": "Apache-2.0",
+	"name": "d-zeromq",
+	"subPackages": [{
+		"name": "server",
+		"targetType": "executable",
+		"dependencies": {
+			"zeromq": "~>6.1.2"
+		},
+		"sourcePaths": ["frontends/server"]
+	},
+	{
+		"name": "client",
+		"targetType": "executable",
+		"dependencies": {
+			"zeromq": "~>6.1.2"
+		},
+		"sourcePaths": ["frontends/client"]
+	}]
+}
